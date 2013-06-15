@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                此為 demo小鋪 文章範例 <a href="http://demo.tc/Post/786" target="_blank">http://demo.tc/Post/786</a>
+                您可以從此範例了解到 ASP.NET MVC 自訂路由約束的功能，如果需要更基礎的網址路由說明建議參考《ASP.NET MVC4 網站開發美學》
+            </p>
+            <p>
+                <img src="~/Images/bqqzh.jpg" alt="ASP.NET MVC4 網站開發美學" />
+                【<a href="http://www.tenlong.com.tw/items/9862766565?item_id=532076" target="_blank">天瓏購買</a>】【<a href="http://www.books.com.tw/exep/prod/booksfile.php?item=0010575816" target="_blank">博客來購買</a>】
+            </p>
+        </div>
+    </section>
+}
+<h3>We suggest the following:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>預設路由</h5>
+        @Url.Action("About", "Home", new { id = "test" })
+    </li>
+
+    <li class="two">
+        <h5>原始路由</h5>
+        /demo/Dt/2013-06-15
+        <h5>設定過的路由（請嘗試取消註解 ForDateTime ）</h5>
+        @Url.Action("Dt", "demo", new { id = new DateTime(2013, 6, 15).ToString("yyyy-MM-dd") })
+    </li>
+
+    <li class="three">
+        <h5>原始路由</h5>
+        /demo/Index/fc95eef3-4782-426b-890d-871582282ff6
+        <h5>設定過的路由（請嘗試取消註解 ForGuid ）</h5>
+        @Url.Action("Index", "demo", new { id = new Guid("fc95eef3-4782-426b-890d-871582282ff6") })
+    </li>
+    <li class="four">
+        <h5>設定過的路由（請嘗試註解 FortwMVCAndAccount）</h5>
+        <p>@Url.Action("Index") </p>
+        <p>@Url.Action("Index", "twmvc") </p>
+        <p>@Url.Action("Login", "Account")</p>
+    </li>
+</ol>
